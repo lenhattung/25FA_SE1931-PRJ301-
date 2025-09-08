@@ -24,6 +24,7 @@
      Code: **Z+::5oeIfPGzkgW0A1TD**
 2. Edunext: https://fu-edunext.fpt.edu.vn/home
 3. Github: https://github.com/lenhattung/25FA_SE1931-PRJ301-/
+4. Zalo: https://zalo.me/g/mxshwh398
 
 # Công cụ:
 1. JDK 8: java version "1.8.0_172"
