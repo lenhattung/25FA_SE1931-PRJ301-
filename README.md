@@ -12,10 +12,16 @@
 
 # Đánh giá:
 1. Assignment (30%) - Nhóm 3 người, xây dựng một website hoàn thiện.
-2. Progress Test (2x5%) (dự kiến slot 10, slot 19).
-3. Workshop (2x5%) - Cá nhân, chấm bài vấn đáp.
-4. PE (30%) - 3 câu hỏi lớn.
-5. FE (20%)
+– IBM Java Developer Professional Certificate 
+– Địa chỉ: https://www.coursera.org/professional-certificates/java-developer
+- Nếu nộp chứng chỉ sẽ được cộng 20% điểm.
+3. Progress Test (2x5%) (dự kiến slot 10, slot 19).
+4. Workshop (2x5%) - Cá nhân, chấm bài vấn đáp.
+5. PE (30%) - 3 câu hỏi lớn.
+6. FE (20%)
+
+# Các nền tảng:
+
 
 
   
