@@ -30,5 +30,8 @@
 2. Tomcat 9: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.109/bin/apache-tomcat-9.0.109-windows-x64.zip
 3. Netbeans 13: https://netbeans.apache.org/front/main/download/nb13/nb13/
 4. SQL Server (từ 2019).
-  
+
+# Thư viện:
+- sqljdbc4.jar
+- jstl (mặc định của Tomcat).
   
