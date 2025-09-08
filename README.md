@@ -12,6 +12,7 @@
 
 # Đánh giá:
 1. Assignment (30%) - Nhóm 3 người, xây dựng một website hoàn thiện.
+   
 – IBM Java Developer Professional Certificate 
 – Địa chỉ: https://www.coursera.org/professional-certificates/java-developer
 - Nếu nộp chứng chỉ sẽ được cộng 20% điểm.
