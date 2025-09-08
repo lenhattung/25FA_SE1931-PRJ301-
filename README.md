@@ -25,6 +25,8 @@
 2. Edunext: https://fu-edunext.fpt.edu.vn/home
 3. Github: https://github.com/lenhattung/25FA_SE1931-PRJ301-/
 
-
+# Công cụ:
+1. JDK 8: java version "1.8.0_172"
+2. Tomcat 9: https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.109/bin/apache-tomcat-9.0.109-windows-x64.zip 
   
   
