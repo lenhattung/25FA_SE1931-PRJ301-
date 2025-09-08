@@ -22,7 +22,8 @@
 6. FE (20%)
 
 # Các nền tảng:
-
+- LMS: https://lms-hcm.fpt.edu.vn/
+  Code: Z+::5oeIfPGzkgW0A1TD
 
 
   
