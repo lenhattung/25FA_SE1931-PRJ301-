@@ -5,5 +5,7 @@
 + Slot 2:
 
 - Đề cương: https://flm.fpt.edu.vn/gui/role/student/SyllabusDetails?sylID=13165
-- Slides: 
+- Slides: Download từ trang syllabus của trường.
+
+- Thông tin liên hệ: tungln4@fe.edu.vn / lenhattung@gmail.com
   
