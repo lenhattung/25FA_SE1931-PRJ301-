@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>My Calculator</div>
+        <form action="MainController" method="GET">
+            <table>
+                <tr>
+                    <td>a = </td>
+                    <td><input type="text" name="textA" /> </td>
+                </tr>
+                <tr>
+                    <td>b = </td>
+                    <td><input type="text" name="textB" /> </td>
+                </tr>
+                <tr>
+                    <td>op = </td>
+                        <td>
+                            <select name="textOp">
+                                <option value=""></option>
+                                <option value="+">+</option>
+                                <option value="-">-</option>
+                                <option value="*">*</option>
+                                <option value="/">/</option>
+                            </select> 
+                        </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Send" />
+                        <input type="reset" value="Reset" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
