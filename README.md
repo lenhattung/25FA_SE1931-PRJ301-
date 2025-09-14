@@ -36,3 +36,7 @@
 - sqljdbc4.jar
 - jstl (mặc định của Tomcat).
   
+# Videos:
+
+* Slot 1:  https://youtu.be/4bA3EAtT62U
+* Slot 2: https://youtu.be/aKrow2-AwHo
