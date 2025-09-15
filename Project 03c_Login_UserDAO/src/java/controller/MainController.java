@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.text.TextAction;
-import model.User;
+import model.UserDTO;
+import model.UserDAO;
 
 /**
  *
@@ -39,10 +40,10 @@ public class MainController extends HttpServlet {
         String txtPassword = request.getParameter("txtPassword");
 
         if (txtAction.equals("login")) {
-            User user = new User();
+            UserDAO userDAO = new UserDAO();
             // Cach chuyen trang
             String url = "";
-            url = user.login(txtUsername, txtPassword)?
+            url = userDAO.login(txtUsername, txtPassword)?
                     "loginSuccess.html":
                     "loginError.html";
             
