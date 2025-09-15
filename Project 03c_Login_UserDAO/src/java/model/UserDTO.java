@@ -4,7 +4,7 @@
  */
 package model;
 
-/**
+/*
 DTO = Data Transfer Object
  */
 public class UserDTO {
@@ -64,8 +64,6 @@ public class UserDTO {
 
     public void setActive(boolean active) {
         this.active = active;
-    }
-    
-    
+    } 
     
 }
