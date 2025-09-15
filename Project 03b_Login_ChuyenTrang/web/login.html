@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form action="MainController" method="post">
+            <input type="hidden" name="txtAction" value="login"/>
+            <table>
+                <tr>
+                    <td colspan="2">LOGIN FORM</td>
+                </tr>
+                <tr>
+                    <td>Username</td>
+                    <td><input type="text" name="txtUsername" required /></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" name="txtPassword" required /></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Login" />
+                        <input type="reset" value="Reset" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
