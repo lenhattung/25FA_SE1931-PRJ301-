@@ -38,5 +38,7 @@
   
 # Videos:
 
-* Slot 1:  https://youtu.be/4bA3EAtT62U
+* Slot 1: https://youtu.be/4bA3EAtT62U
 * Slot 2: https://youtu.be/aKrow2-AwHo
+* Slot 3: https://youtu.be/ppyE1jhUfKY
+* Slot 4: https://youtu.be/AkSlc8F9xO8
