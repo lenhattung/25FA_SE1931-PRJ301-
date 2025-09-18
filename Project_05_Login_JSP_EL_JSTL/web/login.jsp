@@ -9,12 +9,12 @@
     <body>
         <!--
         Vi du ve JSP: 
-        
-        -->
-        
         <c:forEach var="i" begin="0" end="9">
             Index: ${i} <br/>
         </c:forEach>
+        
+        -->       
+        
        
           <form action="MainController" method="post">
             <input type="hidden" name="txtAction" value="login"/>
