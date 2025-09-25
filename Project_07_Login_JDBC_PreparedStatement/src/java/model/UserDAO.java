@@ -5,6 +5,7 @@
 package model;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -25,16 +26,16 @@ public class UserDAO {
             
             // 2 - Tao cau lenh
             String sql = "SELECT * FROM tblUsers WHERE"
-                    + " userID='"+ userName +"' AND "
-                    + " password='" + password +"'";
-            
-            // SELECT * FROM tblUsers WHERE userID='' or 1=1 -- 
+                    + " userID=? AND password=?";
             
             // 3 - Tao statement de co the run cau lenh
-            Statement st = conn.createStatement();
+            //Statement st = conn.createStatement();
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, userName);
+            pst.setString(2, password);
             
             // 4 - Thuc thi cau lenh
-            ResultSet rs = st.executeQuery(sql);
+            ResultSet rs = pst.executeQuery(sql);
             
             // 5 - Kiem tra
             if(rs.next()){
