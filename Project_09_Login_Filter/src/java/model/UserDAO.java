@@ -19,24 +19,24 @@ public class UserDAO {
     public UserDAO() {
     }
 
-    public UserDTO getUserById(String userName){
+    public UserDTO getUserById(String userName) {
         try {
             // 1 - Tao ket noi
             Connection conn = DBUtils.getConnection();
-            
+
             // 2 - Tao cau lenh
             String sql = "SELECT * FROM tblUsers WHERE"
                     + " userID=?";
-            
+
             // 3 - Tao statement de co the run cau lenh
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, userName);
-            
+
             // 4 - Thuc thi cau lenh
             ResultSet rs = pst.executeQuery();
-            
+
             // 5 - Kiem tra
-            if(rs.next()){
+            if (rs.next()) {
                 UserDTO user = new UserDTO();
                 user.setUserName(rs.getString("userID"));
                 user.setPassword(rs.getString("password"));
@@ -50,11 +50,11 @@ public class UserDAO {
         }
         return null;
     }
-    
+
     public boolean login(String userName, String password) {
         try {
             UserDTO user = getUserById(userName);
-            if(user!=null){
+            if (user != null) {
                 return user.getPassword().equals(password);
             }
         } catch (Exception e) {
@@ -62,5 +62,66 @@ public class UserDAO {
         }
         return false;
     }
-   
+
+    public ArrayList<UserDTO> getAllUser() {
+        ArrayList<UserDTO> list = new ArrayList<>();
+        try {
+            // 1 - Tao ket noi
+            Connection conn = DBUtils.getConnection();
+
+            // 2 - Tao cau lenh
+            String sql = "SELECT * FROM tblUsers";
+
+            // 3 - Tao statement de co the run cau lenh
+            PreparedStatement pst = conn.prepareStatement(sql);
+
+            // 4 - Thuc thi cau lenh
+            ResultSet rs = pst.executeQuery();
+
+            // 5 - Kiem tra
+            while (rs.next()) {
+                UserDTO user = new UserDTO();
+                user.setUserName(rs.getString("userID"));
+                user.setPassword(rs.getString("password"));
+                user.setFullName(rs.getString("fullName"));
+                user.setRole(rs.getString("roleID"));
+                user.setActive(rs.getBoolean("status"));
+                list.add(user);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public ArrayList<UserDTO> getAllUserByName(String name) {
+        ArrayList<UserDTO> list = new ArrayList<>();
+        try {
+            // 1 - Tao ket noi
+            Connection conn = DBUtils.getConnection();
+
+            // 2 - Tao cau lenh
+            String sql = "SELECT * FROM tblUsers WHERE fullName LIKE ?";
+
+            // 3 - Tao statement de co the run cau lenh
+            PreparedStatement pst = conn.prepareStatement(sql);
+            pst.setString(1, "%"+name+"%");
+            // 4 - Thuc thi cau lenh
+            ResultSet rs = pst.executeQuery();
+
+            // 5 - Kiem tra
+            while (rs.next()) {
+                UserDTO user = new UserDTO();
+                user.setUserName(rs.getString("userID"));
+                user.setPassword(rs.getString("password"));
+                user.setFullName(rs.getString("fullName"));
+                user.setRole(rs.getString("roleID"));
+                user.setActive(rs.getBoolean("status"));
+                list.add(user);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

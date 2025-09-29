@@ -6,6 +6,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,9 +40,14 @@ public class MainController extends HttpServlet {
         String txtAction = request.getParameter("txtAction");
 
         String url = "login.jsp";
-        if (txtAction.equals("login") || txtAction.equals("logout")){
+
+        // nhóm action cho từng controller
+        String[] userActions = {"login", "logout", "searchUser"};
+        String[] productActions = {"addProduct", "deleteProduct"};
+
+        if (Arrays.asList(userActions).contains(txtAction)) {
             url = "UserController";
-        }else  if (txtAction.equals("addProduct") || txtAction.equals("deleteProduct")){
+        } else if (Arrays.asList(productActions).contains(txtAction)) {
             url = "ProductController";
         }
         request.getRequestDispatcher(url).forward(request, response);

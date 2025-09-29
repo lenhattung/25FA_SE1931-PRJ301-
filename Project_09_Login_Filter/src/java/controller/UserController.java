@@ -6,6 +6,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,61 +23,82 @@ import model.UserDTO;
 @WebServlet(name = "UserController", urlPatterns = {"/UserController"})
 public class UserController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    private void processLogin(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String txtUsername = request.getParameter("txtUsername");
+        String txtPassword = request.getParameter("txtPassword");
+
+        UserDAO userDAO = new UserDAO();
+
+        boolean checkLogin = userDAO.login(txtUsername, txtPassword);
+        // Cach chuyen trang
+        String url = "";
+        url = checkLogin ? "loginSuccess.jsp" : "login.jsp";
+        UserDTO user = null;
+
+        String msg = "";
+        if (!checkLogin) {
+            // Login fail
+            msg = "Username or password incorrect!";
+        } else {
+            user = userDAO.getUserById(txtUsername);
+        }
+        // setAttribute
+        // request.setAttribute("username", txtUsername);
+        HttpSession session = request.getSession();
+        session.setAttribute("user", user);
+        // A -> B
+        // B -> C
+        // C -> D
+        request.setAttribute("msg", msg);
+
+        // 1. Kem theo thong tin / chuyen tiep
+        request.getRequestDispatcher(url).forward(request, response);
+
+        // 2. Chuyen trang ma khong kem thong tin / chuyen huong
+        // response.sendRedirect(url);
+    }
+
+    private void processLogout(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        session.invalidate(); // Huy tat ca nhung cai dang co trong session
+        response.sendRedirect("login.jsp");
+    }
+
+    private void processSearchUser(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String name = request.getParameter("txtName");
+        UserDAO userDAO = new UserDAO();
+        
+        ArrayList<UserDTO> listOfUsers = new ArrayList<>();
+        if(name==null || name.trim().length()==0){
+            listOfUsers = userDAO.getAllUser();
+        }else{
+            listOfUsers = userDAO.getAllUserByName(name);
+        }
+        request.setAttribute("listOfUsers", listOfUsers);
+        request.setAttribute("name", name);
+        
+        request.getRequestDispatcher("loginSuccess.jsp").forward(request, response);
+    }
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         // request.getParameter
         String txtAction = request.getParameter("txtAction");
-        String txtUsername = request.getParameter("txtUsername");
-        String txtPassword = request.getParameter("txtPassword");
 
         if (txtAction == null) {
             txtAction = "login";
         }
 
         if (txtAction.equals("login")) {
-            UserDAO userDAO = new UserDAO();
-
-            boolean checkLogin = userDAO.login(txtUsername, txtPassword);
-            // Cach chuyen trang
-            String url = "";
-            url = checkLogin ? "loginSuccess.jsp" : "login.jsp";
-            UserDTO user = null;
-
-            String msg = "";
-            if (!checkLogin) {
-                // Login fail
-                msg = "Username or password incorrect!";
-            } else {
-                user = userDAO.getUserById(txtUsername);
-            }
-            // setAttribute
-            // request.setAttribute("username", txtUsername);
-            HttpSession session = request.getSession();
-            session.setAttribute("user", user);
-            // A -> B
-            // B -> C
-            // C -> D
-            request.setAttribute("msg", msg);
-
-            // 1. Kem theo thong tin / chuyen tiep
-            request.getRequestDispatcher(url).forward(request, response);
-
-            // 2. Chuyen trang ma khong kem thong tin / chuyen huong
-            // response.sendRedirect(url);
+            processLogin(request, response);
         } else if (txtAction.equals("logout")) {
-            HttpSession session = request.getSession();
-            session.invalidate(); // Huy tat ca nhung cai dang co trong session
-            response.sendRedirect("login.jsp");
+            processLogout(request, response);
+        }else if (txtAction.equals("searchUser")) {
+            processSearchUser(request, response);
         }
 
     }
