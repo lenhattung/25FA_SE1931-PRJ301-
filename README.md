@@ -44,3 +44,5 @@
 * Slot 4: https://youtu.be/AkSlc8F9xO8
 * Slot 5: https://youtu.be/I_4tLgtyRd8
 * Slot 6: https://youtu.be/tC0ENXwpeZc
+* Slot 7: https://youtu.be/1zgD25ulf2M
+* Slot 8: 
